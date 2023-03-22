@@ -59,6 +59,10 @@ public class MemberServiceImpl implements MemberService {
         List<GrantedAuthority> grantedAuthorities = new ArrayList<>();
         grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_USER"));
 
+        if (member.isAdminYn()) {
+            grantedAuthorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        }
+
         return new User(member.getUserId(), member.getPassword(), grantedAuthorities);
     }
 }

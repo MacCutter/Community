@@ -16,4 +16,6 @@ public class Member {
     private String email;
     private String password;
     private LocalDateTime regDt;
+
+    private boolean adminYn;
 }
